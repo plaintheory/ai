@@ -15,28 +15,44 @@
       --bg: #ffffff;
       --fg: #111111;
       --muted: #555555;
-      --maxw: 720px;
+      --accent: #0f0f0f;
     }
+    html, body { height: 100%; margin: 0; }
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--fg);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.75;
       font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
     }
-    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 80px 20px; }
-    h1 { font-size: 42px; margin-bottom: 24px; text-align: center; }
-    p { margin: 0 0 20px; text-align: left; }
-    .muted { color: var(--muted); margin-top: 32px; text-align: center; }
-    a { color: var(--fg); text-decoration: none; border-bottom: 1px solid #ddd; }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 80px 20px; }
+    h1 { font-size: 48px; margin-bottom: 20px; letter-spacing: -0.5px; }
+    p { margin-bottom: 18px; }
+    .muted { color: var(--muted); text-align: center; font-size: 16px; margin-top: 32px; }
+    .cta { display: inline-block; margin-top: 12px; padding: 12px 18px; border: 1px solid #ddd; border-radius: 10px; text-decoration: none; color: var(--fg); }
+    @supports(padding:max(0px)) {
+      .wrap { padding-left: max(20px, env(safe-area-inset-left));
+              padding-right: max(20px, env(safe-area-inset-right)); }
+    }
+    @media (max-width: 430px) {
+      .wrap { padding: 56px 20px; }
+      h1 { font-size: 34px; line-height: 1.2; text-align: center; }
+      p { font-size: 17px; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0b0b0b; --fg: #f3f3f3; --muted: #a0a0a0; }
+      body { background: var(--bg); color: var(--fg); }
+    }
   </style>
 </head>
 <body>
   <main>
     <div class="wrap">
       <h1>Plain Theory</h1>
-      <p>Artificial Intelligence is moving fast, but its foundations are rarely clear. Plain Theory is a nonprofit research group created to make those foundations simple to understand and simple to share. We write in plain language, publish plain numbers, and welcome collaborators who want to help shape this work. Reach us at <a href="mailto:hello@plaintheory.org">hello@plaintheory.org</a>.</p>
+      <p>Plain Theory is a nonprofit research group. We study the foundations of artificial intelligence and make them visible with clear methods and plain numbers. We keep the work simple, reproducible, and open to students, researchers, and teams everywhere. If you want to take part in plain AI research reach us at <a href="mailto:hello@plaintheory.org">hello@plaintheory.org</a>.</p>
       <p class="muted">September 23, 2025 we make AI simple.</p>
     </div>
   </main>
